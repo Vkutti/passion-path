@@ -16,7 +16,7 @@ function ResultsPage() {
             <Navbar />
             <div>
                 <div className="center-objects">
-                    <h2>You are interested in</h2>
+                    <h2 className="normal-text">You are interested in</h2>
                     <h2 className="color-text">{ interest }</h2>
                 </div>
 
