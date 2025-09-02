@@ -53,20 +53,22 @@ function ModelCreate() {
     return (
         <div>
             <Navbar/>
-            <div style={{ marginTop: '20rem' }}>
-                <h1 className="landing-title">Let AI guide your research journey from passion to paper.</h1>
+                    <div style={{ marginTop: '22rem', padding: '0 2rem' }}>
+            <h1 className="landing-title">Let AI guide your research journey from passion to paper.</h1>
 
-                <form onSubmit={e => { e.preventDefault(); runModel(); }}>
-                    <br/>
-                    <Input value={interest} setValue={setInterest} placeholderText={"What are you interested in? (math, science..."}/>
-                    <br/>
-                    <button type="submit" className="primary-btn" disabled={loading}>
-                        {loading ? (
-                            <span className="spinner"></span>
-                        ) : (
-                            "Generate"
-                        )}
-                    </button>
+                <form onSubmit={e => { e.preventDefault(); runModel(); }} style={{ marginTop: '3rem' }}>
+                    <div style={{ marginBottom: '2rem' }}>
+                        <Input value={interest} setValue={setInterest} placeholderText={"What are you interested in? (math, science..."}/>
+                    </div>
+                    <div style={{ textAlign: 'center' }}>
+                        <button type="submit" className="primary-btn" disabled={loading} style={{ minWidth: '200px' }}>
+                            {loading ? (
+                                <span className="spinner"></span>
+                            ) : (
+                                "Generate"
+                            )}
+                        </button>
+                    </div>
                 </form>
             </div>
 

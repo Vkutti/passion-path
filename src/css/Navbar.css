@@ -3,14 +3,14 @@
     align-items: center;
     justify-content: space-between;
     margin: 2.5rem auto 0 auto;
-    background-color: #DDDDDD;
+    background-color: #FFFFFF;
     border-radius: 100rem;
     width: 95vw;
-    max-width: 660px;
+    max-width: 800px;
     min-width: 320px;
-    height: 5rem;
-    min-height: 5rem;
-    padding: 0 2vw 0 2vw;
+    height: 5.5rem;
+    min-height: 5.5rem;
+    padding: 0 2.5vw 0 2.5vw;
     position: fixed; 
     top: 0;
     left: 50%;
@@ -18,6 +18,8 @@
     right: auto;
     z-index: 100;
     box-sizing: border-box;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid #F0F0F0;
 }
 
 .text-holder {
@@ -50,45 +52,34 @@
     gap: 1.5rem;
     margin-left: 2rem;
     margin-right: 16px;
+    align-items: center;
 }
 
 .tertiary-btn {
     width: 9.375rem;
     height: 3.125rem;
-    background-color: #00000000;
+    background-color: #F8F8F8;
+    border: 1px solid #E5E5E5;
     border-radius: 50px;
-    color: black;
-    font-weight: bold;
-    font-size: 1.25rem; 
+    color: #333;
+    font-weight: 600;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
 
 .tertiary-btn:hover {
-    width: 9.375rem;
-    height: 3.125rem;
-    background-color: #C2472940;
-    border-radius: 50px;
-    color: black;
-    font-weight: bold;
-    font-size: 1.25rem; 
-    transform: scale(1.05);
-    transition: background-color 0.1s ease-in-out;
-    transition: transform 0.1s ease-in-out;
-
+    background-color: #EFEFEF;
+    border-color: #C24729;
+    color: #C24729;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(194, 71, 41, 0.15);
 }
 
 .tertiary-btn:active {
-    width: 9.375rem;
-    height: 3.125rem;
-    background-color: #C2472940;
-    border-radius: 50px;
-    color: black;
-    font-weight: bold;
-    font-size: 1.25rem; 
-    transform: scale(1.1);
-    transition: background-color 0.1s ease-in-out;
-    transition: transform 0.1s ease-in-out;
-
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(194, 71, 41, 0.1);
 }
 
 .primary-btn {
@@ -99,32 +90,18 @@
     color: black;
     font-weight: bold;
     font-size: 1.25rem;
+    text-align: center;
 }
 
 .primary-btn:hover {
-    width: 9.375rem;
-    height: 3.125rem;
-    background-color: #C24729;
-    border-radius: 50px;
-    color: black;
-    font-weight: bold;
-    font-size: 1.25rem;
-    transform: scale(1.05);
-    transition: background-color 0.1s ease-in-out;
-    transition: transform 0.1s ease-in-out;
+    background-color: #B03D22;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(194, 71, 41, 0.3);
 }
 
 .primary-btn:active {
-    width: 9.375rem;
-    height: 3.125rem;
-    background-color: #C24729;
-    border-radius: 50px;
-    color: black;
-    font-weight: bold;
-    font-size: 1.25rem;
-    transform: scale(1.1);
-    transition: background-color 0.1s ease-in-out;
-    transition: transform 0.1s ease-in-out;
+    transform: translateY(0);
+    box-shadow: 0 4px 16px rgba(194, 71, 41, 0.2);
 }
 
 .primary-title {
@@ -132,11 +109,31 @@
     color: black;
 }
 
+.user-email {
+    color: #666;
+    font-size: 0.95rem;
+    margin-right: 1.5rem;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.75rem 1.25rem;
+    background-color: #F8F8F8;
+    border-radius: 8px;
+    border: 1px solid #E5E5E5;
+    font-weight: 500;
+}
+
 .landing-title {
-    font-size: 2.5rem;
-    color: black;
-    width: 50rem;
+    font-size: 3rem;
+    color: #333;
+    width: 90vw;
+    max-width: 60rem;
     margin: auto;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .spinner {
@@ -153,4 +150,39 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .landing-title {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .navbar {
+    width: 98vw;
+    padding: 0 1.5vw;
+    height: 5rem;
+    min-height: 5rem;
+  }
+  
+  .btn-holder {
+    gap: 1rem;
+  }
+  
+  .tertiary-btn,
+  .primary-btn {
+    width: 8rem;
+    height: 2.75rem;
+    font-size: 1.1rem;
+  }
+  
+  .user-email {
+    max-width: 120px;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .primary-title {
+    font-size: 1.8rem;
+  }
 }
