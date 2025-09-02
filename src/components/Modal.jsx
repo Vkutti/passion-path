@@ -2,7 +2,7 @@ import '../css/Modal.css'
 
 function Modal({close, titleVar, descVar}) {
     return (
-        <div className='modal-background'>
+        <div className='modal-background' onClick={close}>
             <div className='modal-card-bg'>
                 <h1 className='title-text'>{titleVar}</h1>
                 <h2 className='desc-text'>{descVar}</h2>

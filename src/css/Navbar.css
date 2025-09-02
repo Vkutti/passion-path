@@ -96,6 +96,7 @@
 .primary-btn:hover {
     background-color: #B03D22;
     transform: translateY(-2px);
+    transition: transform 0.1s;
     box-shadow: 0 8px 24px rgba(194, 71, 41, 0.3);
 }
 
@@ -110,7 +111,7 @@
 }
 
 .user-email {
-    color: #666;
+    color: #C24729;
     font-size: 0.95rem;
     margin-right: 1.5rem;
     max-width: 200px;
@@ -120,7 +121,7 @@
     padding: 0.75rem 1.25rem;
     background-color: #F8F8F8;
     border-radius: 8px;
-    border: 1px solid #E5E5E5;
+    border: 1px solid #C24729;
     font-weight: 500;
 }
 

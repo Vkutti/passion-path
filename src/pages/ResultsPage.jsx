@@ -19,8 +19,7 @@ function ResultsPage() {
                     <h2 className="normal-text">You are interested in</h2>
                     <h2 className="color-text">{ interest }</h2>
                 </div>
-
-                <h1>Here's what we suggest</h1>
+                <h1 className="suggestion-title">Here's what we suggest</h1>
             </div>
 
             <div className="cards-holder">
