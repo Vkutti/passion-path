@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import '../css/Auth.css'
 
-function SignInModal({ isOpen, onClose }) {
+function SignInModal({ isOpen, onClose, onSuccessfulLogin }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -20,7 +20,12 @@ function SignInModal({ isOpen, onClose }) {
     if (error) {
       setError(error.message)
     } else {
-      onClose() // Close modal on successful login
+      // Call the success callback if provided, otherwise just close
+      if (onSuccessfulLogin) {
+        onSuccessfulLogin()
+      } else {
+        onClose()
+      }
     }
     
     setLoading(false)
