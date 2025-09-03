@@ -44,11 +44,19 @@ function Navbar() {
             
             <SignInModal 
                 isOpen={showSignInModal} 
-                onClose={() => setShowSignInModal(false)} 
+                onClose={() => setShowSignInModal(false)}
+                onSwitchToSignUp={() => {
+                    setShowSignInModal(false);
+                    setShowSignUpModal(true);
+                }}
             />
             <SignUpModal 
                 isOpen={showSignUpModal} 
-                onClose={() => setShowSignUpModal(false)} 
+                onClose={() => setShowSignUpModal(false)}
+                onSwitchToSignIn={() => {
+                    setShowSignUpModal(false);
+                    setShowSignInModal(true);
+                }}
             />
         </>
     )

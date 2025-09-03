@@ -183,8 +183,14 @@ function ModelCreate() {
                         <h2>Ready to Transform Your Research Journey?</h2>
                         <p>Join thousands of students who have discovered their perfect research topics with PassionPath.</p>
                         <button className="cta-button-secondary" onClick={() => {
+                            console.log('Button clicked!');
+                            console.log('Current modal state:', showSignInModal);
                             window.scrollTo({ top: 0, behavior: 'smooth' });
-                            setTimeout(() => setShowSignInModal(true), 500);
+                            setTimeout(() => {
+                                console.log('Setting modal to true');
+                                setShowSignInModal(true);
+                                console.log('Modal state after setting:', true);
+                            }, 500);
                         }}>
                             Get Started Free
                         </button>
@@ -216,10 +222,17 @@ function ModelCreate() {
             </div>
             
             <SignInModal 
-            
                 isOpen={showSignInModal} 
-                onClose={() => setShowSignInModal(false)}
+                onClose={() => {
+                    console.log('Closing modal');
+                    setShowSignInModal(false);
+                }}
                 onSuccessfulLogin={handleSuccessfulLogin}
+                onSwitchToSignUp={() => {
+                    setShowSignInModal(false);
+                    // Note: We don't have a sign-up modal in ModelCreate, so we'll just close
+                    // Users can access sign-up through the navbar
+                }}
             />
         </>
     );

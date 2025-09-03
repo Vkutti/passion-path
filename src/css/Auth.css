@@ -139,6 +139,8 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
+/* Removed complex background pattern */
+
 .close-btn {
   position: absolute;
   top: 1.5rem;
@@ -193,5 +195,91 @@
     padding: 1rem 1.5rem;
     font-size: 1.1rem;
     min-width: 280px;
+  }
+}
+
+/* Switch between auth modes */
+.auth-switch {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.auth-switch p {
+  color: #4a5568;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.switch-link {
+  background: none;
+  border: none;
+  color: #C24729;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.switch-link:hover {
+  color: #B03D22;
+  background: rgba(194, 71, 41, 0.1);
+  text-decoration: none;
+}
+
+.switch-link:focus {
+  outline: 2px solid #C24729;
+  outline-offset: 2px;
+}
+
+/* Fluid animations for modals */
+.modal-background {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.auth-modal {
+  animation: slideInUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }

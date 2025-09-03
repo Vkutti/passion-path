@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import '../css/Auth.css'
 
-function SignUpModal({ isOpen, onClose }) {
+function SignUpModal({ isOpen, onClose, onSwitchToSignIn }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -96,6 +96,16 @@ function SignUpModal({ isOpen, onClose }) {
               {loading ? 'Creating Account...' : 'Sign Up'}
             </button>
           </form>
+          
+          <div className="auth-switch">
+            <p>Already have an account? <button 
+              type="button" 
+              className="switch-link" 
+              onClick={onSwitchToSignIn}
+            >
+              Sign In
+            </button></p>
+          </div>
         </div>
       </div>
     </div>
