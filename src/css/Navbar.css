@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 2.5rem auto 0 auto;
     background-color: #FFFFFF;
     border-radius: 100rem;
@@ -10,7 +10,7 @@
     min-width: 320px;
     height: 5.5rem;
     min-height: 5.5rem;
-    padding: 0 2.5vw 0 2.5vw;
+    padding: 0 3rem;
     position: fixed; 
     top: 0;
     left: 50%;
@@ -27,7 +27,7 @@
     align-items: center;
     color: black;
     cursor: pointer;
-    margin-right: 2rem;
+    margin-right: 0;
 }
 
 .text-holder:hover {
@@ -50,8 +50,8 @@
 .btn-holder {
     display: flex;
     gap: 1.5rem;
-    margin-left: 2rem;
-    margin-right: 16px;
+    margin-left: 0;
+    margin-right: 0;
     align-items: center;
 }
 
@@ -96,12 +96,13 @@
 .primary-btn:hover {
     background-color: #B03D22;
     transform: translateY(-2px);
-    transition: transform 0.1s;
+    transition: transform 0.25s;
     box-shadow: 0 8px 24px rgba(194, 71, 41, 0.3);
 }
 
 .primary-btn:active {
-    transform: translateY(0);
+    transform: translateY(0px);
+    transition: transform 0.25s;
     box-shadow: 0 4px 16px rgba(194, 71, 41, 0.2);
 }
 

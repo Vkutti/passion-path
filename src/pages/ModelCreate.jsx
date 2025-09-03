@@ -32,7 +32,6 @@ function ModelCreate() {
     const handleSuccessfulLogin = async () => {
         setShowSignInModal(false);
         if (pendingInterest) {
-            // Use the pending interest directly instead of waiting for state update
             const interestToUse = pendingInterest;
             setInterest(interestToUse);
             
@@ -99,47 +98,125 @@ function ModelCreate() {
 
     return (
         <>
-            <div>
+            <div className="landing-page">
                 <Navbar/>
-                <div className="main-content">
-                    <h1 className="landing-title">Let AI guide your research journey from passion to paper.</h1>
+                
+                {/* Hero Section */}
+                <section className="hero-section">
+                    <div className="hero-content">
+                        <h1 className="hero-title">Let AI guide your research journey from passion to paper.</h1>
+                        <p className="hero-subtitle">Transform your interests into compelling research paper ideas with AI-powered suggestions tailored for high school students.</p>
+                        
+                        <form onSubmit={e => { 
+                            e.preventDefault(); 
+                            runModel(); 
+                        }} className="hero-form">
+                            <div className="input-container">
+                                <Input value={interest} setValue={setInterest} placeholderText={"What are you interested in? (math, science..."}/>
+                            </div>
+                            <div className="button-container">
+                                <button type="submit" className="cta-button" disabled={loading}>
+                                    {loading ? (
+                                        <span className="spinner"></span>
+                                    ) : (
+                                        "Generate Research Ideas"
+                                    )}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
 
-                    <form onSubmit={e => { 
-                        e.preventDefault(); 
-                        runModel(); 
-                    }} className="research-form">
-                        <div className="input-container">
-                            <Input value={interest} setValue={setInterest} placeholderText={"What are you interested in? (math, science..."}/>
+                {/* Features Section */}
+                <section className="features-section">
+                    <div className="container">
+                        <h2 className="section-title">Why Choose PassionPath?</h2>
+                        <div className="features-grid">
+                            <div className="feature-card">
+                                <div className="feature-icon">🎯</div>
+                                <h3>AI-Powered Suggestions</h3>
+                                <p>Get personalized research paper ideas based on your specific interests and academic level.</p>
+                            </div>
+                            <div className="feature-card">
+                                <div className="feature-icon">📚</div>
+                                <h3>High School Focused</h3>
+                                <p>All suggestions are tailored for high school students with achievable research goals.</p>
+                            </div>
+                            <div className="feature-card">
+                                <div className="feature-icon">⚡</div>
+                                <h3>Instant Results</h3>
+                                <p>Generate three unique research ideas in seconds, not hours of brainstorming.</p>
+                            </div>
                         </div>
-                        <div className="button-container">
-                            <button type="submit" className="primary-btn" disabled={loading} >
-                                {loading ? (
-                                    <span className="spinner"></span>
-                                ) : (
-                                    "Generate"
-                                )}
-                            </button>
+                    </div>
+                </section>
+
+                {/* How It Works Section */}
+                <section className="how-it-works-section">
+                    <div className="container">
+                        <h2 className="section-title">How It Works</h2>
+                        <div className="steps-grid">
+                            <div className="step-card">
+                                <div className="step-number">1</div>
+                                <h3>Share Your Interest</h3>
+                                <p>Tell us what fascinates you - whether it's math, science, history, or any other subject.</p>
+                            </div>
+                            <div className="step-card">
+                                <div className="step-number">2</div>
+                                <h3>AI Generates Ideas</h3>
+                                <p>Our advanced AI analyzes your interests and creates three unique research paper concepts.</p>
+                            </div>
+                            <div className="step-card">
+                                <div className="step-number">3</div>
+                                <h3>Start Your Research</h3>
+                                <p>Choose your favorite idea and begin your academic journey with confidence.</p>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </section>
 
-                <div>
-                    <h2>{title1}</h2>
-                    <h2>{desc1}</h2>
+                {/* Use Cases Section */}
+                
+                {/* CTA Section */}
+                <section className="cta-section">
+                    <div className="container">
+                        <h2>Ready to Transform Your Research Journey?</h2>
+                        <p>Join thousands of students who have discovered their perfect research topics with PassionPath.</p>
+                        <button className="cta-button-secondary" onClick={() => {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            setTimeout(() => setShowSignInModal(true), 500);
+                        }}>
+                            Get Started Free
+                        </button>
+                    </div>
+                </section>
 
-                    <br/>
-
-                    <h2>{title2}</h2>
-                    <h2>{desc2}</h2>
-
-                    <br/>
-
-                    <h2>{title3}</h2>
-                    <h2>{desc3}</h2>
-                </div>
+                {/* Results Preview (Hidden by default) */}
+                {title1 && (
+                    <section className="results-section">
+                        <div className="container">
+                            <h2 className="section-title">Your Research Ideas</h2>
+                            <div className="results-grid">
+                                <div className="result-card">
+                                    <h3>{title1}</h3>
+                                    <p>{desc1}</p>
+                                </div>
+                                <div className="result-card">
+                                    <h3>{title2}</h3>
+                                    <p>{desc2}</p>
+                                </div>
+                                <div className="result-card">
+                                    <h3>{title3}</h3>
+                                    <p>{desc3}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
             </div>
             
             <SignInModal 
+            
                 isOpen={showSignInModal} 
                 onClose={() => setShowSignInModal(false)}
                 onSuccessfulLogin={handleSuccessfulLogin}
