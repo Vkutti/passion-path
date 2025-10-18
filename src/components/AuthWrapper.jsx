@@ -4,6 +4,7 @@ import ResultsPage from '../pages/ResultsPage'
 import ProtectedRoute from './ProtectedRoute'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import SavedItems from '../pages/SavedItems'
 
 function AuthWrapper() {
   const { user, loading } = useAuth()
@@ -30,6 +31,15 @@ function AuthWrapper() {
         element={
           <ProtectedRoute>
             <ResultsPage />
+          </ProtectedRoute>
+        } 
+      />
+
+      <Route 
+        path="/saved" 
+        element={
+          <ProtectedRoute>
+            <SavedItems />
           </ProtectedRoute>
         } 
       />

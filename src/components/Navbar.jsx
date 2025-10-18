@@ -16,6 +16,10 @@ function Navbar() {
         navigate("/");
     }
 
+    function goSaved() {
+        navigate("/saved");
+    }
+
     const handleSignOut = async () => {
         await signOut()
         navigate('/')
@@ -31,7 +35,9 @@ function Navbar() {
                     {user ? (
                         <>
                             <span className="user-email">{user.email}</span>
-                            <button className="tertiary-btn" onClick={handleSignOut}>Sign Out</button>
+                            <button className="tertiary-btn" onClick={goSaved}>Saved</button>
+
+                            <button className="primary-btn" onClick={handleSignOut}>Sign Out</button>
                         </>
                     ) : (
                         <>

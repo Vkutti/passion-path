@@ -5,12 +5,12 @@
     margin: 2.5rem auto 0 auto;
     background-color: #FFFFFF;
     border-radius: 100rem;
-    width: 95vw;
-    max-width: 800px;
+    width: 98vw;
+    max-width: 950px;
     min-width: 320px;
     height: 5.5rem;
     min-height: 5.5rem;
-    padding: 0 3rem;
+    padding: 0 2rem;
     position: fixed; 
     top: 0;
     left: 50%;
@@ -115,7 +115,7 @@
     color: #C24729;
     font-size: 0.95rem;
     margin-right: 1.5rem;
-    max-width: 200px;
+    max-width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
