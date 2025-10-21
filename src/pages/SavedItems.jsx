@@ -6,6 +6,7 @@ import Modal from "../components/Modal";
 import { supabase } from '../lib/supabase'
 import { useState } from "react";
 import { useEffect } from "react";
+import SavedCard from "../components/SavedCard";
 
 function SavedItems() {
     const [saved, setSaved] = useState([])
@@ -23,7 +24,7 @@ function SavedItems() {
     
     return (
         <div>
-            <Navbar />
+            <Navbar/>
             <div>
                 <div className="center-objects">
                     <h2 className="normal-text">Saved</h2>
@@ -37,13 +38,13 @@ function SavedItems() {
                         items.info.map((item, idx) => (
                             <div key={index + '-' + idx} >
                                 
-                                <Card title={item.title} desc={item.description}/>
+                                <SavedCard title={item.title} desc={item.description}/>
                             </div>
                         ))
                     ) : (
                         <div key={index}>
                             
-                            <Card title={item.info.title} desc={item.info.description}/>
+                            <SavedCard title={item.info.title} desc={item.info.description}/>
 
                         </div>
                     )

@@ -7,10 +7,14 @@ import { useAuth } from "../contexts/AuthContext";
 import SignInModal from "../components/SignInModal";
 import "../css/ModelCreate.css";
 
-
 function ModelCreate() {
-    const apiKey = "AIzaSyDzGLKQZK6He1el1SssyHCbRfLe1kIDEX4"
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+
     const { user } = useAuth();
+
+
+
     const ai = new GoogleGenAI({apiKey});
 
     const [title1, setTitle1] = useState();
@@ -25,7 +29,7 @@ function ModelCreate() {
     const [loading, setLoading] = useState(false);
     const [showSignInModal, setShowSignInModal] = useState(false);
     const [pendingInterest, setPendingInterest] = useState('');
-
+    const [showSignUpModal, setShowSignUpModal] = useState(false);
     const navigate = useNavigate();
 
     // Function to handle successful login and continue with research generation
@@ -55,6 +59,7 @@ function ModelCreate() {
                 navigate("/results", { state: { interest: interestToUse, dataObject } });
             } catch (err) {
                 console.error("Error generating content:", err);
+                alert("Error generating research ideas. Please check that your Gemini API key is valid and try again.");
                 // handle error if needed
             } finally {
                 setLoading(false);
@@ -68,6 +73,7 @@ function ModelCreate() {
         if (!user) {
             setPendingInterest(interest);
             setShowSignInModal(true);
+            setShowSignUpModal(false);
             return;
         }
 
@@ -89,7 +95,8 @@ function ModelCreate() {
             setDesc3(dataObject.description3);
             navigate("/results", { state: { interest, dataObject } });
         } catch (err) {
-            // handle error if needed
+            console.error("Error generating content:", err);
+            alert("Error generating research ideas. Please check that your Gemini API key is valid and try again.");
         } finally {
             setLoading(false);
         }
@@ -181,7 +188,7 @@ function ModelCreate() {
                 <section className="cta-section">
                     <div className="container">
                         <h2>Ready to Transform Your Research Journey?</h2>
-                        <p>Join thousands of students who have discovered their perfect research topics with PassionPath.</p>
+                        <p>Join students who have discovered their perfect research topics with PassionPath.</p>
                         <button className="cta-button-secondary" onClick={() => {
                             console.log('Button clicked!');
                             console.log('Current modal state:', showSignInModal);
@@ -192,7 +199,7 @@ function ModelCreate() {
                                 console.log('Modal state after setting:', true);
                             }, 500);
                         }}>
-                            Get Started Free
+                            Get Started Now
                         </button>
                     </div>
                 </section>
@@ -226,12 +233,13 @@ function ModelCreate() {
                 onClose={() => {
                     console.log('Closing modal');
                     setShowSignInModal(false);
+                    showSignUpModal(false);
                 }}
                 onSuccessfulLogin={handleSuccessfulLogin}
                 onSwitchToSignUp={() => {
                     setShowSignInModal(false);
-                    // Note: We don't have a sign-up modal in ModelCreate, so we'll just close
-                    // Users can access sign-up through the navbar
+                    showSignUpModal(true);
+                    onSwitchToSignUp(true);
                 }}
             />
         </>
