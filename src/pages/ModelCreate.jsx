@@ -111,8 +111,8 @@ function ModelCreate() {
                 {/* Hero Section */}
                 <section className="hero-section">
                     <div className="hero-content">
-                        <h1 className="hero-title">Let AI guide your research journey from passion to paper.</h1>
-                        <p className="hero-subtitle">Transform your interests into compelling research paper ideas with AI-powered suggestions tailored for high school students.</p>
+                        <h1 className="hero-title">Let AI guide your research journey from passion to paper</h1>
+                        <p className="hero-subtitle">Transform your interests into compelling research paper ideas with AI-powered suggestions tailored for high school students</p>
                         
                         <form onSubmit={e => { 
                             e.preventDefault(); 
@@ -188,7 +188,7 @@ function ModelCreate() {
                 <section className="cta-section">
                     <div className="container">
                         <h2>Ready to Transform Your Research Journey?</h2>
-                        <p>Join students who have discovered their perfect research topics with PassionPath.</p>
+                        <p>Join students who have discovered their perfect research topics with PassionPath</p>
                         <button className="cta-button-secondary" onClick={() => {
                             console.log('Button clicked!');
                             console.log('Current modal state:', showSignInModal);

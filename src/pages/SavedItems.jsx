@@ -27,9 +27,8 @@ function SavedItems() {
             <Navbar/>
             <div>
                 <div className="center-objects">
-                    <h2 className="normal-text">Saved</h2>
+                    <h1 className="suggestion-title">Saved Ideas</h1>
                 </div>
-                <h1 className="suggestion-title">Here's what we suggest</h1>
             </div>
 
             <div className="cards-holder">
